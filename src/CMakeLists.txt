@@ -7,8 +7,11 @@ set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -DIS_DEBUG")
 file(READ "${CMAKE_SOURCE_DIR}/nodes.ipv4.conf" NODES_IPV4)
 file(READ "${CMAKE_SOURCE_DIR}/nodes.ipv6.conf" NODES_IPV6)
 
-string(REGEX REPLACE "\n" " \\\\ \n" NODES_IPV4 "${NODES_IPV4}")
-string(REGEX REPLACE "\n" " \\\\ \n" NODES_IPV6 "${NODES_IPV6}")
+string(REGEX REPLACE "\n" "\\\\n" NODES_IPV4 "${NODES_IPV4}")
+string(REGEX REPLACE "\n" "\\\\n" NODES_IPV6 "${NODES_IPV6}")
+
+string(REGEX REPLACE "\"" "\\\\\"" NODES_IPV4 "${NODES_IPV4}")
+string(REGEX REPLACE "\"" "\\\\\"" NODES_IPV6 "${NODES_IPV6}")
 
 configure_file(conf-updater.h.in conf-updater.h)
 
