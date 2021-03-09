@@ -1,4 +1,3 @@
-nodes.conf
+nodes*
 result*
 cmake-build-*
-

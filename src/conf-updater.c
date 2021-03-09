@@ -8,10 +8,6 @@
 #include <stdbool.h>
 #include <string.h>
 
-// TODO: dynamically load this
-#define BLOCK_IPV4 "// no ipv4 specified"
-#define BLOCK_IPV6 "// no ipv6 specified"
-
 char* blocks[] = { BLOCK_IPV4, BLOCK_IPV6 };
 
 #ifndef IS_DEBUG
