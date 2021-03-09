@@ -9,16 +9,16 @@
 #include <string.h>
 
 // TODO: dynamically load this
-#define BLOCK_IPV4 "hi_v4"
-#define BLOCK_IPV6 "hi_v6"
+#define BLOCK_IPV4 "// no ipv4 specified"
+#define BLOCK_IPV6 "// no ipv6 specified"
 
 char* blocks[] = { BLOCK_IPV4, BLOCK_IPV6 };
 
-#ifdef NDEBUG
-#ifdef __linux__
+#ifndef IS_DEBUG
+#ifdef __MINGW32__
+#define CJDNS_CONF "C:\\Program Files (x86)\\cjdns\\cjdroute.conf"
+#elif __GNUC__
 #define CJDNS_CONF "/etc/cjdroute.conf"
-#elif _WIN32
-#define CJDNS_CONF "todo"
 #else
 #error "Invalid platform, please add"
 #endif

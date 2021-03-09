@@ -11,8 +11,8 @@
       {
         out = cr.bundle {
           win32 = pkg cr.win32;
-          # linux-x86 = linux-x86;
-          # linux-rpi = linux-rpi;
+          linux-x86 = pkg cr.linux-x86;
+          linux-rpi = pkg cr.linux-rpi;
           # macos = macos;
         };
       };
