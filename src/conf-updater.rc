@@ -1,0 +1,46 @@
+// from https://github.com/curl/curl/blob/master/src/curl.rc
+
+// require admin
+
+#include <winver.h>
+
+LANGUAGE  0,0
+
+VS_VERSION_INFO VERSIONINFO
+
+
+/* String escaping rules:
+     https://msdn.microsoft.com/library/aa381050
+   Application Manifest doc, including the list of 'supportedOS Id's:
+     https://msdn.microsoft.com/library/aa374191 */
+
+#ifndef CREATEPROCESS_MANIFEST_RESOURCE_ID
+#define CREATEPROCESS_MANIFEST_RESOURCE_ID  1
+#endif
+#ifndef RT_MANIFEST
+#define RT_MANIFEST  24
+#endif
+
+#define _STR(macro)   _STR_(macro)
+#define _STR_(macro)  #macro
+
+// NOTE: requestedExecutionLevel => requireAdministrator
+
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST
+BEGIN
+"<?xml version=""1.0""?>"
+"<assembly xmlns=""urn:schemas-microsoft-com:asm.v1"" manifestVersion=""1.0"">"
+  "<dependency>"
+    "<dependentAssembly>"
+      "<assemblyIdentity type=""win32"" name=""Microsoft.Windows.Common-Controls"" version=""6.0.0.0"" processorArchitecture=""amd64"" publicKeyToken=""6595b64144ccf1df"" language=""*""/>"
+    "</dependentAssembly>"
+  "</dependency>"
+  "<trustInfo xmlns=""urn:schemas-microsoft-com:asm.v3"">"
+    "<security>"
+      "<requestedPrivileges>"
+        "<requestedExecutionLevel level=""requireAdministrator"" uiAccess=""false""/>"
+      "</requestedPrivileges>"
+    "</security>"
+  "</trustInfo>"
+"</assembly>"
+END
