@@ -1,0 +1,8 @@
+//
+// Created by maciej on 09.03.21.
+//
+
+#ifndef CJDNS_CONF_UPDATER_CONF_UPDATER_H
+#define CJDNS_CONF_UPDATER_CONF_UPDATER_H
+
+#endif //CJDNS_CONF_UPDATER_CONF_UPDATER_H
